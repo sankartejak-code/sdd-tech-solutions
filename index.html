@@ -100,9 +100,8 @@
 </header>
 <main id="home">
 <section class="hero">
+<h1 class="hero-brand-heading"><img src="modern-heading-banner.png" alt="Welcome to SDD Tech Solutions" fetchpriority="high"></h1>
 <div class="hero-copy">
-<p class="eyebrow">WELCOME TO</p>
-<h1>SDD Tech <span>Solutions</span></h1>
 <div class="tagline">Your Local Tech & Digital Service Partner</div>
 <p class="lead">Mobile Display Combo &amp; Battery Replacement • Dead Mobile Repair • Computer &amp; Smart TV Repairs • Airtel Payments Bank BC Point • AEPS &amp; Online Services — all in Antipeta.</p>
 <div class="actions">
@@ -187,9 +186,9 @@
 </article>
 </div>
 </section><section class="section poster-section" id="offers"><p class="eyebrow center">OUR LATEST SERVICES</p><h2>Service Posters / మా సేవలు</h2><p class="poster-intro">Explore our repair and banking services. For availability, charges and eligibility, contact our shop.</p><div class="poster-grid">
-<article class="poster-card"><img alt="Mobile display combo, battery and dead phone repair poster" loading="lazy" src="mobile-repair-poster.png"/><div class="poster-info"><h3>📱 Mobile Repair &amp; Display Combo</h3><p>Broken screen combo replacement • Battery replacement • Dead mobile repair</p><a class="btn whatsapp" href="https://wa.me/918328170026?text=Hello%2C%20I%20need%20mobile%20repair%20service" rel="noopener noreferrer" target="_blank">💬 Enquire on WhatsApp</a></div></article>
-<article class="poster-card"><img alt="Airtel Payments Bank BC Point and AEPS services poster" loading="lazy" src="banking-aeps-poster.png"/><div class="poster-info"><h3>🏦 Airtel Payments Bank BC Point</h3><p>AEPS • DBT-based account opening assistance • Online services (subject to eligibility)</p><a class="btn whatsapp" href="https://wa.me/918328170026?text=Hello%2C%20I%20need%20BC%20Point%20or%20AEPS%20service" rel="noopener noreferrer" target="_blank">💬 Enquire on WhatsApp</a></div></article>
-<article class="poster-card"><img alt="Computer and Smart TV repair services poster" loading="lazy" src="computer-smart-tv-poster.png"/><div class="poster-info"><h3>💻 Computer &amp; Smart TV Repairs</h3><p>PC/Laptop servicing • Smart TV display, sound and software issues • Xiaomi service-connected support (confirm details with shop)</p><a class="btn whatsapp" href="https://wa.me/918328170026?text=Hello%2C%20I%20need%20computer%20or%20Smart%20TV%20repair" rel="noopener noreferrer" target="_blank">💬 Enquire on WhatsApp</a></div></article>
+<article class="poster-card"><button class="poster-zoom" type="button" data-image="mobile-repair-poster.png" aria-label="Zoom poster: Mobile display combo, battery and dead phone repair poster"><img alt="Mobile display combo, battery and dead phone repair poster" loading="lazy" src="mobile-repair-poster.png"/>/><span class="zoom-label">🔍 Tap to zoom / పెద్దగా చూడండి</span></button><div class="poster-info"><h3>📱 Mobile Repair &amp; Display Combo</h3><p>Broken screen combo replacement • Battery replacement • Dead mobile repair</p><a class="btn whatsapp" href="https://wa.me/918328170026?text=Hello%2C%20I%20need%20mobile%20repair%20service" rel="noopener noreferrer" target="_blank">💬 Enquire on WhatsApp</a></div></article>
+<article class="poster-card"><button class="poster-zoom" type="button" data-image="banking-aeps-poster.png" aria-label="Zoom poster: Airtel Payments Bank BC Point and AEPS services poster"><img alt="Airtel Payments Bank BC Point and AEPS services poster" loading="lazy" src="banking-aeps-poster.png"/>/><span class="zoom-label">🔍 Tap to zoom / పెద్దగా చూడండి</span></button><div class="poster-info"><h3>🏦 Airtel Payments Bank BC Point</h3><p>AEPS • DBT-based account opening assistance • Online services (subject to eligibility)</p><a class="btn whatsapp" href="https://wa.me/918328170026?text=Hello%2C%20I%20need%20BC%20Point%20or%20AEPS%20service" rel="noopener noreferrer" target="_blank">💬 Enquire on WhatsApp</a></div></article>
+<article class="poster-card"><button class="poster-zoom" type="button" data-image="computer-smart-tv-poster.png" aria-label="Zoom poster: Computer and Smart TV repair services poster"><img alt="Computer and Smart TV repair services poster" loading="lazy" src="computer-smart-tv-poster.png"/>/><span class="zoom-label">🔍 Tap to zoom / పెద్దగా చూడండి</span></button><div class="poster-info"><h3>💻 Computer &amp; Smart TV Repairs</h3><p>PC/Laptop servicing • Smart TV display, sound and software issues • Xiaomi service-connected support (confirm details with shop)</p><a class="btn whatsapp" href="https://wa.me/918328170026?text=Hello%2C%20I%20need%20computer%20or%20Smart%20TV%20repair" rel="noopener noreferrer" target="_blank">💬 Enquire on WhatsApp</a></div></article>
 </div></section>
 <!-- WhatsApp Booking Form -->
 <section class="section" id="book-service">
@@ -263,6 +262,11 @@
 </div>
 </footer>
 <div class="copyright">© 2026 SDD Tech Solutions. All Rights Reserved.</div>
+
+<div class="poster-lightbox" id="posterLightbox" role="dialog" aria-modal="true" aria-label="Enlarged service poster" aria-hidden="true" hidden>
+ <button type="button" class="lightbox-close" aria-label="Close poster">✕ Close</button>
+ <img id="lightboxImage" alt="Enlarged service poster"/>
+</div>
 <!-- Form Script for WhatsApp -->
 <script>
     document.getElementById('serviceForm').addEventListener('submit', function(e) {
@@ -282,6 +286,19 @@
       window.open(whatsappURL, '_blank');
     });
   </script>
+<script>
+(function(){
+ const lightbox=document.getElementById('posterLightbox');
+ const image=document.getElementById('lightboxImage');
+ const close=lightbox.querySelector('.lightbox-close');
+ let previousFocus=null;
+ function hide(){lightbox.hidden=true;lightbox.setAttribute('aria-hidden','true');document.body.classList.remove('lightbox-open');image.removeAttribute('src');if(previousFocus)previousFocus.focus();}
+ document.querySelectorAll('.poster-zoom').forEach(button=>button.addEventListener('click',()=>{previousFocus=document.activeElement;image.src=button.dataset.image;image.alt=button.querySelector('img').alt;lightbox.hidden=false;lightbox.setAttribute('aria-hidden','false');document.body.classList.add('lightbox-open');close.focus();}));
+ close.addEventListener('click',hide);
+ lightbox.addEventListener('click',e=>{if(e.target===lightbox)hide();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lightbox.hidden)hide();});
+})();
+</script>
 <script src="script.js"></script>
 </body>
 </html>
