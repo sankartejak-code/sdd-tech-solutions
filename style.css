@@ -68,12 +68,3 @@ body{background:#f7faff}
 .lightbox-open{overflow:hidden}
 @media(max-width:650px){.poster-zoom img{aspect-ratio:auto}.zoom-label{font-size:11px;padding:8px 10px}.poster-lightbox{padding:65px 8px 12px}}
 @media(prefers-reduced-motion:reduce){.poster-zoom img{transition:none}}
-
-/* Full-width, single-line modern homepage heading */
-.hero-brand-heading{grid-column:1 / -1;width:100%;margin:0;line-height:0;min-width:0}
-.hero-brand-heading img{display:block;width:100%;height:auto;max-height:290px;object-fit:contain;filter:drop-shadow(0 12px 24px rgba(0,0,0,.15))}
-.hero{row-gap:16px}
-.hero-copy{min-width:0}
-.hero .actions .btn{gap:5px;flex-direction:column;line-height:1.25;white-space:normal}
-.hero .actions .btn small{display:block}
-@media(max-width:700px){.hero-brand-heading img{max-height:none}.hero{row-gap:22px}}
